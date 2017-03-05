@@ -12,28 +12,28 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="name" placeholder="Pseudo" v-model.trim="name">
+              <input type="text" name="name" placeholder="Pseudo" v-model.trim="name" required>
             </div>
           </div>
 
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="email" name="email" placeholder="Email" v-model.trim="email">
+              <input type="email" name="email" placeholder="Email" v-model.trim="email" required>
             </div>
           </div>
 
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password" placeholder="Password" v-model="password">
+              <input type="password" name="password" placeholder="Password" v-model.trim="password" required>
             </div>
           </div>
 
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password_confirmation" placeholder="Confirmation password" v-model="password_confirmation">
+              <input type="password" name="password_confirmation" placeholder="Confirmation password" v-model.trim="password_confirmation" required>
             </div>
           </div>
 
@@ -89,8 +89,8 @@
             }).then(() => {
               // Enregistrement de l'utilisateur en bdd
               this.saveUserToUsersRef(user).then(() => {
-                this.$store.dispatch('setUser', user)
-                this.$router.push('/')
+//                this.$store.dispatch('setUser', user)
+                this.$router.push('/login')
               })
             }, error => {
               console.log(error)
