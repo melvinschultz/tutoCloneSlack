@@ -7,6 +7,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import router from './router'
 import firebase from 'firebase'
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -20,10 +21,13 @@ let config = {
 }
 firebase.initializeApp(config)
 
+// window.firebase = firebase // permet de ne pas avoir à import le composant firebase dans toutes les pages
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {
     App,
